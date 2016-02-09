@@ -1,0 +1,486 @@
+﻿/*----------------------------------------------------------
+The base color for this template is #5c87b2. If you'd like
+to use a different color start by replacing all instances of
+#5c87b2 with your new color.
+----------------------------------------------------------*/
+html,body {
+    height:100%;
+    background-color: #DAEEFF;
+    font-size: 12px;
+    font-family: Open-Sans, Helvetica, Sans-Serif;
+    margin: 0;
+    padding: 0;
+    color: #696969;
+}
+
+a:link
+{
+    color: #505abc;
+    text-decoration: underline;
+}
+a:visited
+{
+    color: #505abc;
+}
+a:hover
+{
+    color: #4d91ff;
+    text-decoration: none;
+}
+a:active
+{
+    color: #4d91ff;
+}
+
+p, ul
+{
+    margin-bottom: 20px;
+    line-height: 1.6em;
+}
+
+/* HEADINGS   
+----------------------------------------------------------*/
+h1, h2, h3, h4, h5, h6
+{
+    font-size: 1.5em;
+    color: #696969;
+    font-family: Open-Sans, Helvetica, sans-serif;
+}
+
+h1
+{
+    font-size: 2em;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+h2
+{
+    padding: 0 0 10px 0;
+    font-size: 24px; 
+}
+h3
+{
+    font-size: 1.2em;
+}
+h4
+{
+    font-size: 1.1em;
+}
+h5, h6
+{
+    font-size: 1em;
+}
+
+/* this rule styles <h2> tags that are the 
+first child of the left and right table columns */
+.rightColumn > h1, .rightColumn > h2, .leftColumn > h1, .leftColumn > h2
+{
+    margin-top: 0;
+}
+
+/* PRIMARY LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+
+/* you can specify a greater or lesser percentage for the 
+page width. Or, you can specify an exact pixel width. */
+.page
+{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#header
+{
+    min-width: 985px;
+    width: 100%;
+    position: relative;
+    margin-bottom: 2px;
+    margin-top: 5px;
+    color: #000;
+    padding: 0;
+    overflow:auto;
+}
+
+#header h1
+{
+    font-weight: bold;
+    padding: 5px 0;
+    margin: 0;
+    color: #fff;
+    border: none;
+    line-height: 2em;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 32px !important;
+}
+
+#main
+{
+    padding: 5px 5px 5px 5px;
+    background-color: #fff;
+    margin: auto;
+    _height: 1px; /* only IE6 applies CSS properties starting with an underscore */
+    float: left;
+    min-width: 985px;
+    border: 1px inset #1e90ff;
+    border-bottom-right-radius: 25px;
+    border-top-left-radius: 25px;
+    /*box-shadow: 7px 7px 4px #999999;*/
+}
+
+#contentbox
+{
+    padding: 5px 0% 5px 1%;
+    margin: 1%;
+    height: auto;
+    width: 72%;
+    min-width: 650px;
+    min-height: 400px;
+    float: left;
+    background-color: #FEFEFE;
+    border-top-left-radius: 25px;
+    border: 1px solid #555555;
+}
+
+#infobox_one
+{
+    padding: 1% 1% 5px 1%;
+    height: 50%;
+    width: 22%;
+    min-width: 200px;
+    min-height: 200px;
+    float: left;
+}
+
+#infobox_two
+{
+    padding: 5px 1% 5px 1%;
+    height: 50%;
+    width: 22%;
+    min-width: 200px;
+    min-height: 200px;
+    float: left;
+}
+
+#footer
+{
+    color: #999999;
+    padding: 5px 0;
+    text-align: center;
+    line-height: normal;
+    margin: 0;
+    font-size: .9em;
+    clear: both;
+    width: 100%;
+    min-width: 985px;
+}
+
+/* TAB MENU   
+----------------------------------------------------------*/
+ul#menu
+{
+    padding: 0 0 2px;
+    position: relative;
+    margin: 0;
+    text-align: right;
+}
+
+ul#menu li
+{
+    display: inline;
+    list-style: none;
+}
+
+ul#menu li#greeting
+{
+    padding: 5px 5px;
+    text-decoration: none;
+    /*line-height: 2.8em;*/
+    color: #fff;
+}
+
+ul#menu li a
+{
+    padding: 5px 5px;
+    text-decoration: none;
+}
+
+ul#menu li a:hover
+{
+    text-decoration: none;
+}
+
+ul#menu li a:active
+{
+    text-decoration: none;
+}
+
+ul#menu li.selected a
+{
+    text-decoration: none;
+}
+
+/* FORM LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+
+fieldset 
+{
+    margin: 1em 1em 1em 0em;
+    padding: 1em;
+    border: 1px solid #CCC;
+}
+
+fieldset p 
+{
+    margin: 2px 12px 10px 10px;
+}
+
+legend 
+{
+    font-size: 1.1em;
+    font-weight: 600;
+    padding: 2px 4px 8px 4px;
+}
+
+input[type="text"] 
+{
+    width: 200px;
+    border: 1px solid #CCC;
+}
+
+input[type="password"] 
+{
+    width: 200px;
+    border: 1px solid #CCC;
+}
+
+/* TABLE
+----------------------------------------------------------*/
+
+table 
+{
+  border: solid 1px #e8eef4;
+  border-collapse: collapse;
+}
+
+table td 
+{
+  padding: 5px;   
+  border: solid 1px #e8eef4;
+}
+
+table th
+{
+  padding: 6px 5px;
+  text-align: left;
+  background-color: #e8eef4; 
+  border: solid 1px #e8eef4;   
+}
+
+/* MISC  
+----------------------------------------------------------*/
+.clear
+{
+    clear: both;
+}
+
+.error
+{
+    color:Red;
+}
+
+#imgcontainer
+{
+    width:40%;
+    float:left;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-bottom: 5px;
+}
+
+#menucontainer
+{
+    width: 58%;
+    float: left;
+}
+
+div#title
+{
+    display:block;
+    float:left;
+    text-align:left;
+}
+
+
+#indexContentBoxPicture
+{
+    float: right;
+    width: 45%;
+    height: 45%;
+    margin: 10px; 
+}
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error
+{
+    color: #ff0000;
+}
+
+.field-validation-valid
+{
+    display: none;
+}
+
+.input-validation-error
+{
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+
+.validation-summary-errors
+{
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.validation-summary-valid
+{
+    display: none;
+}
+
+/* Styles for editor and display helpers
+----------------------------------------------------------*/
+.display-label,
+.editor-label,
+.display-field,
+.editor-field
+{
+    margin: 0.5em 0;
+}
+
+.text-box
+{
+    width: 30em;
+}
+
+.text-box.multi-line
+{
+    height: 6.5em;
+}
+
+.tri-state
+{
+    width: 6em;
+}
+
+/* Images
+--------------------------------------------*/
+.imgTM1
+{
+    float: left;
+    width: 18%;
+    height: 18%;
+    padding: 0% 1% 1% 1%;
+}
+
+.imgTM2
+{
+    float: left;
+    width: 18%;
+    height: 18%;
+    padding: 1% 1% 0% 1%;
+}
+
+.bufferPadding
+{
+    float: left;
+    width: 9%;
+    height: 18%;
+    padding: 1% .5% 0% .5%;    
+}
+
+.aboutIMG
+{
+    float: left;
+    width: 100%;
+}
+
+.centerAboutIMG
+{
+    width: 100%;
+    text-align: center;
+}
+
+.aboutParagraph
+{
+    float: left;
+    width: 100%;
+    
+}
+
+.companyName
+{
+    font-size: 40px;
+    color: #696969; 
+    font-weight: bold
+}
+
+.companyDesc
+{
+    font-size: 16px;
+    color: #696969;
+    font-weight: 400;
+}
+
+.anonymizeRed
+{
+    color: RED;
+}
+
+.buildingLocation
+{
+    float: left;
+    width: 100%;
+    padding-top: 2%;
+}
+
+.whiteblock
+{
+  font-size: 15px;
+  background: #FFF;
+  padding: 10px;
+  margin-bottom: 10px;
+  margin-right: 15px;  
+  border: 1px solid #E8E8E8;
+  border-top: 1px solid #E8E8E8;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  position: relative;
+}
+.nine
+{
+  font-size: 12px;
+  color: #F02828;
+}
+.testimonial
+{
+  text-transform:uppercase;
+  font-size: 15px;
+  color: #4d91ff;    
+}
+.noResult
+{  
+  font-size: 20px;
+  color: #F02828;    
+}
+.postTestimonial
+{
+   margin-right: 15px;
+}
+#testimonialContent
+{
+    height: 150px;
+    width: 90%;    
+    font-size:14pt;
+}

@@ -1,0 +1,53 @@
+﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
+    <link href="../../Content/Site.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div class="page">
+
+        <div id="header">
+
+            <div id="imgcontainer">
+                <a href="http://cs4351.cs.uh.edu/TEAM2OIES/Home/Index" style="text-decoration : none" title="TEAM2OIES Website"><span class="companyName">TEAM2OIES</span></a><br />
+                <a href="http://cs4351.cs.uh.edu/TEAM2OIES/Home/Index" style="text-decoration : none" title="TEAM2OIES Website"><span class="companyDesc"><span class="anonymizeRed">ANONYMIZE</span> Long Term Follow Up EVAR Database</span></a>
+            </div>
+
+            <div id="menucontainer">
+            
+                <ul id="menu">              
+                    <li><%: Html.ActionLink("Home", "Index", "Home") %></li>
+                    <li><%: Html.ActionLink("About", "About", "Home") %></li>
+                    <li><%: Html.ActionLink("Contact Us", "Contact", "Home") %></li>
+                    <li><%: Html.ActionLink("Testimonials", "Testimonials", "Home") %></li>
+                    <li><% Html.RenderPartial("LogOnUserControl"); %></li>                    
+                </ul>
+            
+            </div>
+            
+        </div>
+
+        <div id="main">
+            <div id="contentbox">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+            </div>
+            <div id="infobox_one">
+                <asp:ContentPlaceHolder ID="Info1" runat="server" />
+            </div>
+
+            <div id="infobox_two">
+                <asp:ContentPlaceHolder ID="Info2" runat="server" />
+            </div>
+        </div>
+        <div id="footer">
+                Visit our <a href="http://cs4351.cs.uh.edu/TEAM2OIES/Home/About" style="text-decoration : none" title="Go to About Us">About Us</a> page.
+        </div>
+    </div>
+
+    <script type='text/javascript'>        (function () { var done = false; var script = document.createElement('script'); script.async = true; script.type = 'text/javascript'; script.src = 'https://app.purechat.com/VisitorWidget/WidgetScript'; document.getElementsByTagName('HEAD').item(0).appendChild(script); script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) { var w = new PCWidget({ c: 'f2940361-bff7-41f1-8a95-c9a0f88f794d', f: true }); done = true; } }; })();</script>
+</body>
+</html>

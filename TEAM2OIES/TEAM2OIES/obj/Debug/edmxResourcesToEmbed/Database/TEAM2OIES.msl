@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TEAM2OIESModelStoreContainer" CdmEntityContainer="TEAM2OIESEntities">
+    <EntitySetMapping Name="Audits">
+      <EntityTypeMapping TypeName="TEAM2OIESModel.Audit">
+        <MappingFragment StoreEntitySet="Audit">
+          <ScalarProperty Name="auditID" ColumnName="auditID" />
+          <ScalarProperty Name="auditUserID" ColumnName="auditUserID" />
+          <ScalarProperty Name="auditUsername" ColumnName="auditUsername" />
+          <ScalarProperty Name="auditDate" ColumnName="auditDate" />
+          <ScalarProperty Name="auditTable" ColumnName="auditTable" />
+          <ScalarProperty Name="auditAttribute" ColumnName="auditAttribute" />
+          <ScalarProperty Name="access" ColumnName="access" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Brands">
+      <EntityTypeMapping TypeName="TEAM2OIESModel.Brand">
+        <MappingFragment StoreEntitySet="Brand">
+          <ScalarProperty Name="brandID" ColumnName="brandID" />
+          <ScalarProperty Name="brandName" ColumnName="brandName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CFDs">
+      <EntityTypeMapping TypeName="TEAM2OIESModel.CFD">
+        <MappingFragment StoreEntitySet="CFD">
+          <ScalarProperty Name="cfdID" ColumnName="cfdID" />
+          <ScalarProperty Name="currentDate" ColumnName="currentDate" />
+          <ScalarProperty Name="done" ColumnName="done" />
+          <ScalarProperty Name="patientID" ColumnName="patientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Endografts">
+      <EntityTypeMapping TypeName="TEAM2OIESModel.Endograft">
+        <MappingFragment StoreEntitySet="Endograft">
+          <ScalarProperty Name="endograftID" ColumnName="endograftID" />
+          <ScalarProperty Name="brandID" ColumnName="brandID" />
+          <ScalarProperty Name="patientID" ColumnName="patientID" />
+          <ScalarProperty Name="diameter" ColumnName="diameter" />
+          <ScalarProperty Name="length" ColumnName="length" />
+          <ScalarProperty Name="entryPoint" ColumnName="entryPoint" />
+          <ScalarProperty Name="unilateralLegLength" ColumnName="unilateralLegLength" />
+          <ScalarProperty Name="controlaterLegDiameter" ColumnName="controlaterLegDiameter" />
+          <ScalarProperty Name="controlaterLegLength" ColumnName="controlaterLegLength" />
+          <ScalarProperty Name="unilateralLegDiameter" ColumnName="unilateralLegDiameter" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Images">
+      <EntityTypeMapping TypeName="TEAM2OIESModel.Image">
+        <MappingFragment StoreEntitySet="Image">
+          <ScalarProperty Name="imageID" ColumnName="imageID" />
+          <ScalarProperty Name="seriesID" ColumnName="seriesID" />
+          <ScalarProperty Name="imageOrder" ColumnName="imageOrder" />
+          <ScalarProperty Name="imageFilename" ColumnName="imageFilename" />
+          <ScalarProperty Name="imageTitle" ColumnName="imageTitle" />
+          <ScalarProperty Name="sliceThickness" ColumnName="sliceThickness" />
+          <ScalarProperty Name="pixelSize" ColumnName="pixelSize" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Institutions">
+      <EntityTypeMapping TypeName="TEAM2OIESModel.Institution">
+        <MappingFragment StoreEntitySet="Institution">
+          <ScalarProperty Name="institutionID" ColumnName="institutionID" />
+          <ScalarProperty Name="institutionName" ColumnName="institutionName" />
+          <ScalarProperty Name="institutionLocation" ColumnName="institutionLocation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Patients">
+      <EntityTypeMapping TypeName="TEAM2OIESModel.Patient">
+        <MappingFragment StoreEntitySet="Patient">
+          <ScalarProperty Name="patientID" ColumnName="patientID" />
+          <ScalarProperty Name="surgeonID" ColumnName="surgeonID" />
+          <ScalarProperty Name="originalID" ColumnName="originalID" />
+          <ScalarProperty Name="sex" ColumnName="sex" />
+          <ScalarProperty Name="age" ColumnName="age" />
+          <ScalarProperty Name="entryDate" ColumnName="entryDate" />
+          <ScalarProperty Name="dateOfSurgery" ColumnName="dateOfSurgery" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Series">
+      <EntityTypeMapping TypeName="TEAM2OIESModel.Series">
+        <MappingFragment StoreEntitySet="Series">
+          <ScalarProperty Name="seriesID" ColumnName="seriesID" />
+          <ScalarProperty Name="studyID" ColumnName="studyID" />
+          <ScalarProperty Name="originalSeriesID" ColumnName="originalSeriesID" />
+          <ScalarProperty Name="seriesDescription" ColumnName="seriesDescription" />
+          <ScalarProperty Name="seriesDate" ColumnName="seriesDate" />
+          <ScalarProperty Name="totalNumberOfSlices" ColumnName="totalNumberOfSlices" />
+          <ScalarProperty Name="ROIBegin" ColumnName="ROIBegin" />
+          <ScalarProperty Name="illiacBif" ColumnName="illiacBif" />
+          <ScalarProperty Name="comments" ColumnName="comments" />
+          <ScalarProperty Name="ROIEnd" ColumnName="ROIEnd" />
+          <ScalarProperty Name="totalSlicesInROI" ColumnName="totalSlicesInROI" />
+          <ScalarProperty Name="lengthROIINcm" ColumnName="lengthROIINcm" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Studies">
+      <EntityTypeMapping TypeName="TEAM2OIESModel.Study">
+        <MappingFragment StoreEntitySet="Study">
+          <ScalarProperty Name="studyID" ColumnName="studyID" />
+          <ScalarProperty Name="patientID" ColumnName="patientID" />
+          <ScalarProperty Name="originalStudyID" ColumnName="originalStudyID" />
+          <ScalarProperty Name="studyDescription" ColumnName="studyDescription" />
+          <ScalarProperty Name="studyDate" ColumnName="studyDate" />
+          <ScalarProperty Name="CT" ColumnName="CT" />
+          <ScalarProperty Name="delay" ColumnName="delay" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Surgeons">
+      <EntityTypeMapping TypeName="TEAM2OIESModel.Surgeon">
+        <MappingFragment StoreEntitySet="Surgeon">
+          <ScalarProperty Name="surgeonID" ColumnName="surgeonID" />
+          <ScalarProperty Name="institutionID" ColumnName="institutionID" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="online" ColumnName="online" />
+          <ScalarProperty Name="accessLevel" ColumnName="accessLevel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Testimonials">
+      <EntityTypeMapping TypeName="TEAM2OIESModel.Testimonial">
+        <MappingFragment StoreEntitySet="Testimonials">
+          <ScalarProperty Name="testimonialID" ColumnName="testimonialID" />
+          <ScalarProperty Name="surgeonID" ColumnName="surgeonID" />
+          <ScalarProperty Name="testimonialContent" ColumnName="testimonialContent" />
+          <ScalarProperty Name="testimonialDATE" ColumnName="testimonialDATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

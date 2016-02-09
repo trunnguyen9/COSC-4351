@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TEAM2OIESModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="TEAM2OIESEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Audits" EntityType="TEAM2OIESModel.Audit" />
+    <EntitySet Name="Brands" EntityType="TEAM2OIESModel.Brand" />
+    <EntitySet Name="CFDs" EntityType="TEAM2OIESModel.CFD" />
+    <EntitySet Name="Endografts" EntityType="TEAM2OIESModel.Endograft" />
+    <EntitySet Name="Images" EntityType="TEAM2OIESModel.Image" />
+    <EntitySet Name="Institutions" EntityType="TEAM2OIESModel.Institution" />
+    <EntitySet Name="Patients" EntityType="TEAM2OIESModel.Patient" />
+    <EntitySet Name="Series" EntityType="TEAM2OIESModel.Series" />
+    <EntitySet Name="Studies" EntityType="TEAM2OIESModel.Study" />
+    <EntitySet Name="Surgeons" EntityType="TEAM2OIESModel.Surgeon" />
+    <EntitySet Name="Testimonials" EntityType="TEAM2OIESModel.Testimonial" />
+    <AssociationSet Name="FK__Endograft__brand__220B0B18" Association="TEAM2OIESModel.FK__Endograft__brand__220B0B18">
+      <End Role="Brand" EntitySet="Brands" />
+      <End Role="Endograft" EntitySet="Endografts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CFD__patientID__25DB9BFC" Association="TEAM2OIESModel.FK__CFD__patientID__25DB9BFC">
+      <End Role="Patient" EntitySet="Patients" />
+      <End Role="CFD" EntitySet="CFDs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Endograft__patie__22FF2F51" Association="TEAM2OIESModel.FK__Endograft__patie__22FF2F51">
+      <End Role="Patient" EntitySet="Patients" />
+      <End Role="Endograft" EntitySet="Endografts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Image__seriesID__1A69E950" Association="TEAM2OIESModel.FK__Image__seriesID__1A69E950">
+      <End Role="Series" EntitySet="Series" />
+      <End Role="Image" EntitySet="Images" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Surgeon__institu__0A338187" Association="TEAM2OIESModel.FK__Surgeon__institu__0A338187">
+      <End Role="Institution" EntitySet="Institutions" />
+      <End Role="Surgeon" EntitySet="Surgeons" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Patient__surgeon__0D0FEE32" Association="TEAM2OIESModel.FK__Patient__surgeon__0D0FEE32">
+      <End Role="Surgeon" EntitySet="Surgeons" />
+      <End Role="Patient" EntitySet="Patients" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Study__patientID__14B10FFA" Association="TEAM2OIESModel.FK__Study__patientID__14B10FFA">
+      <End Role="Patient" EntitySet="Patients" />
+      <End Role="Study" EntitySet="Studies" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Series__studyID__178D7CA5" Association="TEAM2OIESModel.FK__Series__studyID__178D7CA5">
+      <End Role="Study" EntitySet="Studies" />
+      <End Role="Series" EntitySet="Series" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Testimoni__surge__1D4655FB" Association="TEAM2OIESModel.FK__Testimoni__surge__1D4655FB">
+      <End Role="Surgeon" EntitySet="Surgeons" />
+      <End Role="Testimonials" EntitySet="Testimonials" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Audit">
+    <Key>
+      <PropertyRef Name="auditID" />
+    </Key>
+    <Property Name="auditID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="auditUserID" Type="Int32" />
+    <Property Name="auditUsername" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="auditDate" Type="DateTime" />
+    <Property Name="auditTable" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="auditAttribute" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="access" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+  </EntityType>
+  <EntityType Name="Brand">
+    <Key>
+      <PropertyRef Name="brandID" />
+    </Key>
+    <Property Name="brandID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="brandName" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Endografts" Relationship="TEAM2OIESModel.FK__Endograft__brand__220B0B18" FromRole="Brand" ToRole="Endograft" />
+  </EntityType>
+  <EntityType Name="CFD">
+    <Key>
+      <PropertyRef Name="cfdID" />
+    </Key>
+    <Property Name="cfdID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="currentDate" Type="DateTime" />
+    <Property Name="done" Type="Boolean" />
+    <Property Name="patientID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Patient" Relationship="TEAM2OIESModel.FK__CFD__patientID__25DB9BFC" FromRole="CFD" ToRole="Patient" />
+  </EntityType>
+  <EntityType Name="Endograft">
+    <Key>
+      <PropertyRef Name="endograftID" />
+    </Key>
+    <Property Name="endograftID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="brandID" Type="Int32" Nullable="false" />
+    <Property Name="patientID" Type="Int32" Nullable="false" />
+    <Property Name="diameter" Type="Single" />
+    <Property Name="length" Type="Single" />
+    <Property Name="entryPoint" Type="Single" />
+    <Property Name="unilateralLegLength" Type="Single" />
+    <Property Name="controlaterLegDiameter" Type="Single" />
+    <Property Name="controlaterLegLength" Type="Single" />
+    <Property Name="unilateralLegDiameter" Type="Single" />
+    <NavigationProperty Name="Brand" Relationship="TEAM2OIESModel.FK__Endograft__brand__220B0B18" FromRole="Endograft" ToRole="Brand" />
+    <NavigationProperty Name="Patient" Relationship="TEAM2OIESModel.FK__Endograft__patie__22FF2F51" FromRole="Endograft" ToRole="Patient" />
+  </EntityType>
+  <EntityType Name="Image">
+    <Key>
+      <PropertyRef Name="imageID" />
+    </Key>
+    <Property Name="imageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="seriesID" Type="Int32" Nullable="false" />
+    <Property Name="imageOrder" Type="Int32" />
+    <Property Name="imageFilename" Type="String" MaxLength="60" Unicode="false" FixedLength="false" />
+    <Property Name="imageTitle" Type="String" MaxLength="60" Unicode="false" FixedLength="false" />
+    <Property Name="sliceThickness" Type="Single" />
+    <Property Name="pixelSize" Type="Single" />
+    <NavigationProperty Name="Series" Relationship="TEAM2OIESModel.FK__Image__seriesID__1A69E950" FromRole="Image" ToRole="Series" />
+  </EntityType>
+  <EntityType Name="Institution">
+    <Key>
+      <PropertyRef Name="institutionID" />
+    </Key>
+    <Property Name="institutionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="institutionName" Type="String" MaxLength="60" Unicode="false" FixedLength="false" />
+    <Property Name="institutionLocation" Type="String" MaxLength="60" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Surgeons" Relationship="TEAM2OIESModel.FK__Surgeon__institu__0A338187" FromRole="Institution" ToRole="Surgeon" />
+  </EntityType>
+  <EntityType Name="Patient">
+    <Key>
+      <PropertyRef Name="patientID" />
+    </Key>
+    <Property Name="patientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="surgeonID" Type="Int32" Nullable="false" />
+    <Property Name="originalID" Type="Int32" />
+    <Property Name="sex" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="age" Type="Int32" />
+    <Property Name="entryDate" Type="DateTime" />
+    <Property Name="dateOfSurgery" Type="DateTime" />
+    <NavigationProperty Name="CFDs" Relationship="TEAM2OIESModel.FK__CFD__patientID__25DB9BFC" FromRole="Patient" ToRole="CFD" />
+    <NavigationProperty Name="Endografts" Relationship="TEAM2OIESModel.FK__Endograft__patie__22FF2F51" FromRole="Patient" ToRole="Endograft" />
+    <NavigationProperty Name="Surgeon" Relationship="TEAM2OIESModel.FK__Patient__surgeon__0D0FEE32" FromRole="Patient" ToRole="Surgeon" />
+    <NavigationProperty Name="Studies" Relationship="TEAM2OIESModel.FK__Study__patientID__14B10FFA" FromRole="Patient" ToRole="Study" />
+  </EntityType>
+  <EntityType Name="Series">
+    <Key>
+      <PropertyRef Name="seriesID" />
+    </Key>
+    <Property Name="seriesID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="studyID" Type="Int32" Nullable="false" />
+    <Property Name="originalSeriesID" Type="Int32" />
+    <Property Name="seriesDescription" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="seriesDate" Type="DateTime" />
+    <Property Name="totalNumberOfSlices" Type="Int32" />
+    <Property Name="ROIBegin" Type="Int32" />
+    <Property Name="illiacBif" Type="Single" />
+    <Property Name="comments" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="ROIEnd" Type="Int32" />
+    <Property Name="totalSlicesInROI" Type="Int32" />
+    <Property Name="lengthROIINcm" Type="Single" />
+    <NavigationProperty Name="Images" Relationship="TEAM2OIESModel.FK__Image__seriesID__1A69E950" FromRole="Series" ToRole="Image" />
+    <NavigationProperty Name="Study" Relationship="TEAM2OIESModel.FK__Series__studyID__178D7CA5" FromRole="Series" ToRole="Study" />
+  </EntityType>
+  <EntityType Name="Study">
+    <Key>
+      <PropertyRef Name="studyID" />
+    </Key>
+    <Property Name="studyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="patientID" Type="Int32" Nullable="false" />
+    <Property Name="originalStudyID" Type="Int32" />
+    <Property Name="studyDescription" Type="String" MaxLength="60" Unicode="false" FixedLength="false" />
+    <Property Name="studyDate" Type="DateTime" />
+    <Property Name="CT" Type="Int32" />
+    <Property Name="delay" Type="Single" />
+    <NavigationProperty Name="Patient" Relationship="TEAM2OIESModel.FK__Study__patientID__14B10FFA" FromRole="Study" ToRole="Patient" />
+    <NavigationProperty Name="Series" Relationship="TEAM2OIESModel.FK__Series__studyID__178D7CA5" FromRole="Study" ToRole="Series" />
+  </EntityType>
+  <EntityType Name="Surgeon">
+    <Key>
+      <PropertyRef Name="surgeonID" />
+    </Key>
+    <Property Name="surgeonID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="institutionID" Type="Int32" />
+    <Property Name="firstName" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="lastName" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="username" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="password" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="email" Type="String" MaxLength="60" Unicode="false" FixedLength="false" />
+    <Property Name="active" Type="Boolean" />
+    <Property Name="online" Type="Boolean" />
+    <Property Name="accessLevel" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Institution" Relationship="TEAM2OIESModel.FK__Surgeon__institu__0A338187" FromRole="Surgeon" ToRole="Institution" />
+    <NavigationProperty Name="Patients" Relationship="TEAM2OIESModel.FK__Patient__surgeon__0D0FEE32" FromRole="Surgeon" ToRole="Patient" />
+    <NavigationProperty Name="Testimonials" Relationship="TEAM2OIESModel.FK__Testimoni__surge__1D4655FB" FromRole="Surgeon" ToRole="Testimonials" />
+  </EntityType>
+  <EntityType Name="Testimonial">
+    <Key>
+      <PropertyRef Name="testimonialID" />
+    </Key>
+    <Property Name="testimonialID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="surgeonID" Type="Int32" Nullable="false" />
+    <Property Name="testimonialContent" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+    <Property Name="testimonialDATE" Type="DateTime" />
+    <NavigationProperty Name="Surgeon" Relationship="TEAM2OIESModel.FK__Testimoni__surge__1D4655FB" FromRole="Testimonials" ToRole="Surgeon" />
+  </EntityType>
+  <Association Name="FK__Endograft__brand__220B0B18">
+    <End Role="Brand" Type="TEAM2OIESModel.Brand" Multiplicity="1" />
+    <End Role="Endograft" Type="TEAM2OIESModel.Endograft" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brand">
+        <PropertyRef Name="brandID" />
+      </Principal>
+      <Dependent Role="Endograft">
+        <PropertyRef Name="brandID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CFD__patientID__25DB9BFC">
+    <End Role="Patient" Type="TEAM2OIESModel.Patient" Multiplicity="1" />
+    <End Role="CFD" Type="TEAM2OIESModel.CFD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patient">
+        <PropertyRef Name="patientID" />
+      </Principal>
+      <Dependent Role="CFD">
+        <PropertyRef Name="patientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Endograft__patie__22FF2F51">
+    <End Role="Patient" Type="TEAM2OIESModel.Patient" Multiplicity="1" />
+    <End Role="Endograft" Type="TEAM2OIESModel.Endograft" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patient">
+        <PropertyRef Name="patientID" />
+      </Principal>
+      <Dependent Role="Endograft">
+        <PropertyRef Name="patientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Image__seriesID__1A69E950">
+    <End Role="Series" Type="TEAM2OIESModel.Series" Multiplicity="1" />
+    <End Role="Image" Type="TEAM2OIESModel.Image" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Series">
+        <PropertyRef Name="seriesID" />
+      </Principal>
+      <Dependent Role="Image">
+        <PropertyRef Name="seriesID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Surgeon__institu__0A338187">
+    <End Role="Institution" Type="TEAM2OIESModel.Institution" Multiplicity="0..1" />
+    <End Role="Surgeon" Type="TEAM2OIESModel.Surgeon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Institution">
+        <PropertyRef Name="institutionID" />
+      </Principal>
+      <Dependent Role="Surgeon">
+        <PropertyRef Name="institutionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Patient__surgeon__0D0FEE32">
+    <End Role="Surgeon" Type="TEAM2OIESModel.Surgeon" Multiplicity="1" />
+    <End Role="Patient" Type="TEAM2OIESModel.Patient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Surgeon">
+        <PropertyRef Name="surgeonID" />
+      </Principal>
+      <Dependent Role="Patient">
+        <PropertyRef Name="surgeonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Study__patientID__14B10FFA">
+    <End Role="Patient" Type="TEAM2OIESModel.Patient" Multiplicity="1" />
+    <End Role="Study" Type="TEAM2OIESModel.Study" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patient">
+        <PropertyRef Name="patientID" />
+      </Principal>
+      <Dependent Role="Study">
+        <PropertyRef Name="patientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Series__studyID__178D7CA5">
+    <End Role="Study" Type="TEAM2OIESModel.Study" Multiplicity="1" />
+    <End Role="Series" Type="TEAM2OIESModel.Series" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Study">
+        <PropertyRef Name="studyID" />
+      </Principal>
+      <Dependent Role="Series">
+        <PropertyRef Name="studyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Testimoni__surge__1D4655FB">
+    <End Role="Surgeon" Type="TEAM2OIESModel.Surgeon" Multiplicity="1" />
+    <End Role="Testimonials" Type="TEAM2OIESModel.Testimonial" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Surgeon">
+        <PropertyRef Name="surgeonID" />
+      </Principal>
+      <Dependent Role="Testimonials">
+        <PropertyRef Name="surgeonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
